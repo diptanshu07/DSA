@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int count_no(struct node*);
+
+struct node{
+    int data;
+    struct node* link;
+};
+
+int main()
+{
+    struct node* head=(struct node*)malloc(sizeof(struct node));
+    head->data=03;
+    head->link=NULL;
+
+    struct node* temp=(struct node*)malloc(sizeof(struct node));
+    temp->data=07;
+    temp->link=NULL;
+    head->link=temp;
+
+    temp=malloc(sizeof(struct node));
+    temp->data=10;
+    temp->link=NULL;
+
+    head->link->link=temp;
+    
+    int countno;
+    countno=count_no(head);
+    printf("The number of elements in the LL is :-%d", countno);
+
+    return 0;
+}
+
+int count_no(struct node* head)
+{
+    int count=0;
+    if(head==NULL)
+        printf("Linked list is empty!");
+    struct node* ptr=NULL;
+    ptr=head;
+    while(ptr!=NULL)
+    {
+        count++;
+        ptr=ptr->link;
+    }
+    // printf("%d", count);
+    return count;
+}
