@@ -1,12 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int count_no(struct node*);
-
 struct node{
     int data;
     struct node* link;
 };
+
+int count_no(struct node*);
 
 int main()
 {
